@@ -53,15 +53,15 @@ $(document).ready(function () {
                name: 'blocked', index: 'blocked', width: 60, align: 'center',search:false,
                formatter: 'checkbox', editoptions: { value: '1:0' },
                formatoptions: { disabled: false },
-           }
-           
+           },
+           {name:'view',width:100, search:false,stype:'href',jsonmap:"id", formatter: function (cellvalue) { return '<a href="/view_profile?&profileId='+cellvalue+'" class="btn btn-info" role="button">View Entire Profile</a>'}}
 		 
 		],
-		viewrecords: true, // show the current page, data rang and total records on the toolbar
+		viewrecords: true, // 
 		width: 780,
 		height: 200,
 		rowNum: 30,
-		loadonce: true, // this is just for the demo
+		loadonce: true, //
 		pager: "#jqGridPager"
 	});
 		$("#jqGrid").jqGrid('filterToolbar', {
