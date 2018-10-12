@@ -22,7 +22,7 @@ public class ProfileController {
 
 		ProfileLocal retNote = pD.getOne(profileId);
 		model.addAttribute("profile",retNote);
-		System.out.println(retNote.getId());
+	
 		return new ModelAndView("view_profile");
 
 	}

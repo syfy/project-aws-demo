@@ -19,60 +19,130 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!-- The link to the CSS that the grid needs -->
 <link rel="stylesheet" type="text/css" media="screen"
-	href="../../../css/trirand/ui.jqgrid-bootstrap.css" />
+	href="http://www.guriddo.net/demo/css/trirand/ui.jqgrid-bootstrap.css" />
 <script>
-		$.jgrid.defaults.width = 780;
-		$.jgrid.defaults.styleUI = 'Bootstrap';
-	</script>
+$.jgrid.defaults.width = '100%';
+
+	$.jgrid.defaults.styleUI = 'Bootstrap';
+</script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <meta charset="utf-8" />
 <title>jqGrid Loading Data - JSON</title>
 </head>
 <body>
-	<div style="margin-left: 20px">
-		<table id="jqGrid"></table>
-		<div id="jqGridPager"></div>
-	</div>
-	<script type="text/javascript"> 
-	
+<div style="margin-left:20px">
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
 
-$(document).ready(function () {
+							$("#jqGrid")
+									.jqGrid(
+											{
+												url : 'profiles/',
+												datatype : "json",
+												colModel : [
 
-		$("#jqGrid").jqGrid({
-		url: 'profiles/',
-		datatype: "json",
-		 colModel: [
-		
-            {name:'first',width:100, search:true,stype:'text',jsonmap:"name.first", formatter: function (cellvalue) { return cellvalue}},
-            {name:'middle',width:100, search:true,stype:'text',jsonmap:"name.middle", formatter: function (cellvalue) { return cellvalue}},
-            {name:'last',width:100, search:true,stype:'text',jsonmap:"name.last", formatter: function (cellvalue) { return cellvalue}},
+														{
+															name : 'first',
+															label:'First Name',
+															search : true,
+															stype : 'text',
+															 width: 200,
+															jsonmap : "name.first",
+															formatter : function(
+																	cellvalue) {
+																return cellvalue
+															}
+														},
+														{
+															name : 'middle',
+															label:'Middle Name',
+															search : true,
+															stype : 'text',
+															 width: 100,
+															jsonmap : "name.middle",
+															formatter : function(
+																	cellvalue) {
+																return cellvalue
+															}
+														},
+														{
+															name : 'last',
+															label:'Last Name',
+															search : true,
+															stype : 'text',
+															jsonmap : "name.last",
+															formatter : function(
+																	cellvalue) {
+																return cellvalue
+															}
+														},	{
+															name : 'active',
+															index : 'active',
+															label:'Active',
+															align : 'center',
+															search : false,
+															formatter : 'checkbox',
+															editoptions : {
+																value : '1:0'
+															},
+															formatoptions : {
+																disabled : false
+															},
+														},
 
+														{
+															name : 'blocked',
+															index : 'blocked',
+															label:'Blocked',
+															align : 'center',
+															search : false,
+															formatter : 'checkbox',
+															editoptions : {
+																value : '1:0'
+															},
+															formatoptions : {
+																disabled : false
+															},
+														},
+														{
+															name : 'view',
+													
+															search : false,
+															stype : 'href',
+															jsonmap : "id",
+															formatter : function(
+																	cellvalue) {
+																return '<a href="/view_profile?&profileId='
+																		+ cellvalue
+																		+ '" class="btn btn-info" role="button">View Entire Profile</a>'
+															}
+														}
 
-			 {
-               name: 'blocked', index: 'blocked', width: 60, align: 'center',search:false,
-               formatter: 'checkbox', editoptions: { value: '1:0' },
-               formatoptions: { disabled: false },
-           },
-           {name:'view',width:100, search:false,stype:'href',jsonmap:"id", formatter: function (cellvalue) { return '<a href="/view_profile?&profileId='+cellvalue+'" class="btn btn-info" role="button">View Entire Profile</a>'}}
-		 
-		],
-		viewrecords: true, // 
-		width: 780,
-		height: 200,
-		rowNum: 30,
-		loadonce: true, //
-		pager: "#jqGridPager"
-	});
-		$("#jqGrid").jqGrid('filterToolbar', {
-		    stringResult : true,
-		    searchOnEnter : false
-		});
-});
-
- </script>
+												],
+												viewrecords : true, // 
+									
+												rowNum : 100,
+												loadonce : true, //
+											    autowidth:true,
+											    height: window.innerHeight*.70,
+												pager : "#jqGridPager"
+											});
+							
+							
+							$("#jqGrid").jqGrid('filterToolbar', {
+								stringResult : true,
+								searchOnEnter : false
+							});
+						});
+	</script>
 
 
 </body>
-a
+
 </html>

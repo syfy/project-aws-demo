@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
 <script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-	crossorigin="anonymous"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
 <script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"
-	integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl"
-	crossorigin="anonymous"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Inspect Contact</title>
 
 
@@ -22,10 +20,21 @@
 	<div class="container">
 
 
-		<h2>Contact Details</h2>
+		<h2
+			th:text="${profile.name.first} + ' ' +${profile.name.middle}+ ' ' +${profile.name.last}"></h2>
+
+
 		<div>
 			<form class="form-horizontal">
 
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Photo</label>
+					<div class="col-sm-10">
+						<img th:src="${profile.picture}">
+					</div>
+
+				</div>
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Id</label>
@@ -33,59 +42,39 @@
 						<p class="form-control-static" th:text="${profile.id}">Id</p>
 					</div>
 				</div>
-
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">First Name</label>
-					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${profile.name.first}">First
-							Name</p>
-					</div>
+				<label class="col-sm-2 control-label">Profile</label>
+				<div class="col-sm-10">
+					<p class="form-control-static" th:text="${profile.profile}">profile</p>
 				</div>
 
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Middle Name</label>
-					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${profile.name.middle}">Middle
-							Name</p>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Last Name</label>
-					<div class="col-sm-10">
-						<p class="form-control-static" th:text="${profile.name.last}">Last
-							Name</p>
-					</div>
-				</div>
 
 				<label class="col-sm-2 control-label">Email</label>
 				<div class="col-sm-10">
 					<p class="form-control-static" th:text="${profile.email}">Email</p>
 				</div>
-				
-						<label class="col-sm-2 control-label">Phone</label>
+
+				<label class="col-sm-2 control-label">Phone</label>
 				<div class="col-sm-10">
 					<p class="form-control-static" th:text="${profile.phone}">Phone</p>
 				</div>
-				
-						<label class="col-sm-2 control-label">Address</label>
+
+				<label class="col-sm-2 control-label">Address</label>
 				<div class="col-sm-10">
 					<p class="form-control-static" th:text="${profile.address}">address</p>
 				</div>
-				
-				
-					<label class="col-sm-2 control-label">Age</label>
+
+
+				<label class="col-sm-2 control-label">Age</label>
 				<div class="col-sm-10">
 					<p class="form-control-static" th:text="${profile.age}">Age</p>
 				</div>
-				
-				
-					<label class="col-sm-2 control-label">Address</label>
+
+
+				<label class="col-sm-2 control-label">Address</label>
 				<div class="col-sm-10">
 					<p class="form-control-static" th:text="${profile.balance}">Balance</p>
 				</div>
-				</div>
+		</div>
 
 		</form>
 
