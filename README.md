@@ -1,17 +1,17 @@
 
-mock project for spring framework
+Mock project for spring framework
 
-
-uses http://localhost:8080/ to access the web application
-
-technologies used:
-Backend:
-        Spring MVC.
-        SpringBoot
-        JPA-h2
-        Thymeleaf
-UI:
-    jQuery
-    JQgrid
-    Bootstrap
+Description:   uses http://localhost:8080/ to access the web application
+			
+				technologies used:
+				Backend:
+				        Spring MVC.
+				        SpringBoot
+				        JPA-h2
+				        Thymeleaf
+				UI:
+				    jQuery
+				    JQgrid
+				    Bootstrap
     
+Usage: runs on maven using spring-boot run or import the project entirely on eclipse. 
