@@ -1,5 +1,7 @@
 package com.project.web.controllers;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +21,20 @@ public class ProfileController {
 	
 	@RequestMapping("view_profile")
 	public ModelAndView getProfile(Model model,@RequestParam(value = "profileId", required = true)  String profileId) {
+		ProfileLocal retNote;
+	try{
+		 retNote= pD.getOne(profileId);
 
-		ProfileLocal retNote = pD.getOne(profileId);
+	}
+	catch(javax.persistence.EntityNotFoundException e){
+		return new ModelAndView("null");
+
+	}
+	
+	catch(org.thymeleaf.exceptions.TemplateInputException e){
+		return new ModelAndView("null");
+
+	}
 		model.addAttribute("profile",retNote);
 	
 		return new ModelAndView("view_profile");

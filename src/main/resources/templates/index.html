@@ -5,28 +5,29 @@
 
 <script th:src="@{/bower_components/jquery/dist/jquery.js}"></script>
 <!-- The jQuery library is a prerequisite for all jqSuite products -->
+
 <script type="text/ecmascript"
-	src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
-<!-- We support more than 40 localizations -->
-<script type="text/ecmascript"
-	src="http://www.guriddo.net/demo/js/trirand/i18n/grid.locale-en.js"></script>
+	src="/bower_components/jqGrid/js/i18n/grid.locale-en.js"></script>
+	
 <!-- This is the Javascript file of jqGrid -->
 <script type="text/ecmascript"
-	src="http://www.guriddo.net/demo/js/trirand/src/jquery.jqGrid.js"></script>
+	src="/bower_components/jqGrid/js/jquery.jqGrid.js"></script>
+
 <!-- This is the localization file of the grid controlling messages, labels, etc.
     <!-- A link to a jQuery UI ThemeRoller theme, more than 22 built-in and many more custom -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
 <!-- The link to the CSS that the grid needs -->
 <link rel="stylesheet" type="text/css" media="screen"
-	href="http://www.guriddo.net/demo/css/trirand/ui.jqgrid-bootstrap.css" />
+	href="/bower_components/jqGrid/css/ui.jqgrid-bootstrap.css" />
+	
 <script>
 $.jgrid.defaults.width = '100%';
 
 	$.jgrid.defaults.styleUI = 'Bootstrap';
 </script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 <meta charset="utf-8" />
 <title>jqGrid Loading Data - JSON</title>
 </head>
